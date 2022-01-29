@@ -21,7 +21,9 @@ class carro{
   
   //criando o get
   int get valorp => _valor;
-  void setvalue(int valor) => _valor=valor;
+  void setvalue(int valor){
+    _valor=valor;
+  } 
   carro(this.marca);
 }
 
