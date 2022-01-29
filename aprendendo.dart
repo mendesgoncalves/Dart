@@ -1,3 +1,4 @@
+//Classe com construtor
 class telefone {
   final String marca;
   final String cor;
@@ -15,16 +16,60 @@ class telefone {
   }
 }
 
+//Encapsulamento, get e set
 class carro{
   final String marca;
   int _valor=100;
-  
   //criando o get
   int get valorp => _valor;
-  void setvalue(int valor){
+  void setvalue(int valor) {
     _valor=valor;
   } 
   carro(this.marca);
+}
+
+// Abstract
+abstract class Pessoa{
+  String comunicar();
+}
+// fazendo a abtracao
+class PessoaEt implements Pessoa{
+  String comunicar(){
+    return 'ola Mundo';
+  }
+}
+//ou
+class AbsTest implements Pessoa{
+  String comunicar(){
+    return 'abstracao feita';
+  }
+}
+
+
+//Heranca
+class Pai{
+  String fala(){
+    return 'giria';
+  }
+}
+//herdando
+class Mendes extends Pai{
+  
+}
+
+//polimorfismo
+abstract class Pagamento{
+  void pagar();
+}
+class PagarComCartao implements Pagamento{
+  void pagar(){
+    print('Pagando com Cartao');
+  }
+}
+class  PagarComCash implements Pagamento{
+  void pagar(){
+    print('Pagando com Cash');
+  }
 }
 
 void main() {
@@ -41,4 +86,17 @@ void main() {
   print('==============================');
   y._valor=1;
   print(y.valorp);
+  
+  //mostrar a heranca do mendes
+  
+  Mendes teste=Mendes();
+  print(teste.fala());
+  
+  print('==============================');
+  //usando polimorfismo
+  Pagamento pagamento=PagarComCartao();
+  pagamento.pagar();
+  //trocando
+  pagamento=PagarComCash();
+  pagamento.pagar();
 }
